@@ -22,7 +22,6 @@ Read [agent-team-guide.md](methodology/agent-team-guide.md).
 - [role-design.md](methodology/role-design.md) — role design with negative rights
 - [file-based-coordination.md](methodology/file-based-coordination.md) — one-way information flows through files
 - [brief-anatomy.md](methodology/brief-anatomy.md) — how to write effective agent briefs
-- [team-coordination.md](methodology/team-coordination.md) — the team lead as router, session modes
 - [self-modifying-briefs.md](methodology/self-modifying-briefs.md) — how agents evolve their own instructions
 - [writing-for-ai.md](methodology/writing-for-ai.md) — document quality principles for AI-consumed files
 - [learning-from-practice.md](methodology/learning-from-practice.md) — evidence tracking and continuous improvement

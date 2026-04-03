@@ -20,7 +20,6 @@ Each pattern has its own file:
 - [role-design.md](role-design.md) — role design with negative rights
 - [file-based-coordination.md](file-based-coordination.md) — one-way information flows through files
 - [brief-anatomy.md](brief-anatomy.md) — how to write effective agent briefs
-- [team-coordination.md](team-coordination.md) — the team lead as router, session modes
 - [self-modifying-briefs.md](self-modifying-briefs.md) — how agents evolve their own instructions
 - [writing-for-ai.md](writing-for-ai.md) — document quality principles for AI-consumed files
 

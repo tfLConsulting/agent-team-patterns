@@ -118,6 +118,19 @@ Two session modes:
 
 Undirected sessions are where the team lead earns its keep — the ability to autonomously identify and execute the most important work.
 
+The team lead's own state is minimal — just enough to route:
+
+| Field | Purpose |
+|-------|---------|
+| Last run date per agent | Know what's stale |
+| Key state per agent | One-line summary of where each agent is |
+| Strategic priorities | What matters most right now |
+| Backlog | Queue of open questions |
+
+This is routing information, not management overhead. The team lead's context window stays clear for decision-making.
+
+**The backlog as governance.** The team maintains a prioritised queue of strategic questions. In undirected sessions, the team lead picks from this queue rather than chasing whatever seems interesting in the moment. Each question gets investigated across one or more sessions. Answered questions stay in the log (marked answered) so the team doesn't re-investigate. This creates a visible record of what the team has learned and what it's currently pursuing.
+
 ### 2.6 The Journal as Institutional Memory
 
 Every session produces a journal entry. Not a status update — a narrative of what happened and why. Written for a reader who wasn't there. Honest about uncertainty and changes of mind. Ends with "Next session should focus on..."

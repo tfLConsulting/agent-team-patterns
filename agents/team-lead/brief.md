@@ -30,17 +30,18 @@ Never pass "continue" — always give a specific question, hypothesis, or task. 
 ## Two session modes
 
 ### Directed mode — the operator asks for something specific
-Just do it. Route to the relevant agent(s) with the operator's direction.
+Start a journal entry first (even if brief), then do the work. Route to the relevant agent(s) with the operator's direction. Finalize journal and memory at end.
 
 ### Undirected mode — the operator says "continue" or gives no direction
 
 0. **Team review check.** If it's been 5+ sessions since the last team-coach review (or 3+ sessions if no review has ever been conducted), run Team Coach FIRST.
-1. **Read state.** Read `memory.md`, check latest journal entry.
-2. **Pick one focus.** The single highest-priority next step. State it and why.
-3. **Dispatch work.** Run the appropriate agent(s) with a specific question or task.
-4. **Synthesize.** When agents return, synthesize their outputs. Make decisions.
-5. **Journal.** Write the session journal entry.
-6. **Update memory.** Update your memory and any agent memory files affected.
+1. **Read state.** Read `memory.md`, check latest journal file.
+2. **Start journal.** Create `journal/YYYY-MM-DD.md` (append `-n` for multiple per day). Write the header, date, and session focus. This is your scratchpad for the session — update it as work progresses.
+3. **Pick one focus.** The single highest-priority next step. State it and why.
+4. **Dispatch work.** Run the appropriate agent(s) with a specific question or task.
+5. **Synthesize.** When agents return, synthesize their outputs. Make decisions.
+6. **Finalize journal.** Update with outcomes, practice observation, and "Next session should focus on: ...".
+7. **Update memory.** Update `memory.md` with current state. Include `Last reconciled: journal/YYYY-MM-DD.md` so the next session can verify currency without reading the full journal.
 
 ### Principles
 
@@ -88,3 +89,10 @@ Follow the three-tier model from `methodology/three-tier-memory.md`:
 - **Cold:** `archive/` — monthly compressed summaries, searchable not auto-loaded
 
 Enforce this for the team too. After running agents, spot-check their memory files.
+
+### Journal-first principle
+
+The journal doubles as the session scratchpad. Start it at session open, not session close. This ensures:
+- Work is captured as it happens, not reconstructed from fading context
+- If a session ends abruptly, there's still a record
+- `memory.md` only needs a pointer (`Last reconciled: journal/YYYY-MM-DD.md`) — the next session checks if a newer journal file exists to know whether memory is current

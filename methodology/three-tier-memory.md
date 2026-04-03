@@ -38,3 +38,17 @@ After promotion, prune memory.md back under 200 lines. Test each line: "Will the
 ## Why This Works
 
 It mimics how effective humans manage information: keep the critical stuff top of mind, know where to find the rest, archive what's historical. The key insight is that the 200-line limit on hot memory forces discipline. Without it, memory files grow unbounded until the agent is effectively context-stuffing itself into confusion.
+
+## Known Risks
+
+The most documented failure mode is **pruning away load-bearing decisions.** During consolidation, a decision that shaped the project's architecture looks like historical context — it happened in the past, the next session probably won't re-make it. So it gets pruned. Then a later session encounters the same design question, has no record of the prior decision or its rationale, makes a different choice, and introduces a bug. Buttondown's AI agent hit exactly this: a key architectural decision was pruned during memory consolidation, re-litigated in a later session, and the different choice broke things.
+
+The mitigation is to ask a harder question during pruning. Instead of just "will the next session need this?" also ask: **"If this were missing, could a future session make a decision that contradicts it?"** Decisions about what *not* to do, architectural constraints, and choices made after evaluating alternatives are almost always load-bearing. They don't look urgent, but removing them reopens resolved questions.
+
+There's no perfect heuristic for this. Some decisions genuinely become irrelevant as projects evolve. The practical rule: when in doubt about whether a decision is historical context or a live constraint, keep it. The cost of a few extra lines in memory.md is lower than the cost of re-litigating a settled decision and getting it wrong.
+
+## Related Patterns
+
+**[Writing for AI Consumption](writing-for-ai.md)** — How you write memory content determines whether it survives pruning correctly. A concise, front-loaded decision record is easy to evaluate during consolidation; a buried aside in a narrative paragraph gets pruned because nobody recognises it as load-bearing. The writing patterns directly affect whether three-tier memory works or silently loses critical information.
+
+**[Learning from Practice](learning-from-practice.md)** — The experiment log pattern provides a complementary approach to preserving decisions. Where hot memory captures what the agent needs *now*, the experiment log captures *why structural choices were made* — rationale, observed impact, and kill conditions. Decisions that get pruned from memory.md may survive in the experiment log, giving future sessions a warm-tier path back to the reasoning.
