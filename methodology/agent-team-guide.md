@@ -190,11 +190,19 @@ These are failure modes we've actually hit, not theoretical risks.
 
 The mitigation is the two-agent start (see Section 4). Specialist agents are proposed as candidates but not created until the need has recurred across 3+ sessions. A team that starts small and grows into what it needs is better than a team that starts full-size and has agents sitting idle or duplicating work.
 
+A related failure: the initial assessment gets the project type or work domains wrong, producing agents that don't match actual needs. The mitigation is the same — start with two agents and let the team coach evaluate against real usage at session 3.
+
+### 3.7 Cargo Culting Patterns
+
+**What it looks like:** Copying patterns without understanding why they work. Three-tier memory for a project that runs one session per month. Negative rights for roles where drift hasn't been observed. The patterns in this guide solve specific problems — applying them where those problems don't exist adds complexity without benefit.
+
 ---
 
 ## 4. Starting From Scratch: The Greenfield Path
 
 This section is actionable. When starting with a project that has no agents, follow this sequence.
+
+Creating agents is easy. Creating a *team* — agents with the right roles, sharp boundaries, persistent memory, and coordination patterns — is hard. The hardest part isn't infrastructure; it's figuring out which agents a project actually needs. This is harder than it sounds: a project's codebase doesn't encode its goals or pain points, the person who most needs the protocol is least equipped to evaluate its output, and over-engineering is the default failure mode.
 
 ### 4.1 Read the Project First
 
@@ -286,7 +294,17 @@ commands/
 
 **Command files:** Create command files for your tool (e.g., `.claude/commands/team-lead.md` for Claude Code, or equivalent for your environment). Each should instruct the agent to read CLAUDE.md, its brief, and its memory before following its session protocol. Use absolute paths.
 
-### 4.7 Verify and Hand Off
+### 4.7 Wire in the Learning Loop
+
+The bootstrapping protocol creates team structure. It should also create the mechanism for that structure to improve. Three things to set up at bootstrap, not bolt on later:
+
+1. **Experiment log.** An empty file (e.g., `team-coach/experiment-log.md`) with a template for tracking structural choices. Every choice made during setup — memory architecture, role design, session protocol — is the first batch of entries. Status: active. Observed impact: blank (to be filled after running). See [learning-from-practice.md](learning-from-practice.md) for the template.
+
+2. **Micro-observation prompt in the session-close protocol.** Add to the team-lead's brief: *"What about our team's setup helped or hindered this session's work?"* — 1-3 sentences in the journal entry. This is the cheapest form of learning, and it doesn't happen unless it's in the protocol.
+
+3. **Treat the first ~10 sessions as exploration.** The bootstrapped structure is a starting point. Agents should record what's working and what isn't from session 1. The team coach's first review (session 3) should check the experiment log alongside composition.
+
+### 4.8 Verify and Hand Off
 
 Read back each file to confirm coherence and correct paths. Tell the user:
 - What was created and why
@@ -516,9 +534,9 @@ This section provides a quick-reference checklist for common scenarios.
 1. Read the project (Section 4.1)
 2. Interview the user (Section 4.2)
 3. Assess whether agents are warranted (Section 4.3)
-4. If yes: create team-lead + team-coach + file infrastructure (Section 4.4-4.6)
+4. If yes: create team-lead + team-coach + file infrastructure (Section 4.4-4.7)
 5. Propose candidate specialists (Section 4.5)
-6. Verify and hand off (Section 4.7)
+6. Verify and hand off (Section 4.8)
 
 ### Scenario B: Existing Agent Team
 
@@ -562,13 +580,13 @@ If you want the team to have ongoing access — for example, when making signifi
 
 **Predict the right team.** It creates infrastructure and a starting point. The right team emerges through use.
 
-**Replace operator judgment.** The first few sessions require more human judgment than later ones. Evaluating whether the team lead's proposals make sense, whether the brief captures the right boundaries, whether the memory is retaining the right things — these need a human until the team stabilises.
+**Replace operator judgment.** The bootstrapping protocol is designed for people who don't yet know how agent teams work, but evaluating its output requires that knowledge — a bootstrap paradox that's inherent, not fixable by better protocols. The first few sessions require more human judgment than later ones. Evaluating whether the team lead's proposals make sense, whether the brief captures the right boundaries, whether the memory is retaining the right things — these need a human until the team stabilises.
 
 **Guarantee session-1 productivity.** The first few sessions calibrate the team. Expect iteration.
 
 **Work for every project.** Some projects are better served by a good CLAUDE.md alone. The assessment gate exists for this reason.
 
-**Transfer across LLMs without adaptation.** This was developed and tested with Claude. The principles (context separation, negative rights, memory tiers) are likely portable. The specific implementations (brief structure, memory limits, coordination patterns) may need adjustment for different models.
+**Transfer across LLMs without adaptation.** This was developed and tested with Claude. The principles (context separation, negative rights, memory tiers) are likely portable. The specific implementations (brief structure, memory limits, coordination patterns) may need adjustment for different models. Additionally, Claude Code's capabilities change rapidly. If native features subsume what this guide provides, the guide becomes unnecessary — and that's fine.
 
 **Provide diverse validation.** N=3, same operator, same LLM. These patterns work for us. Presenting them as universal best practices without broader validation would be framework over-extraction. We've tried to be clear about what's validated versus what we believe but haven't tested.
 

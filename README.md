@@ -11,10 +11,10 @@ The evidence base is narrow: multiple projects, same operator, same LLM (Claude)
 ## The Patterns
 
 **Starting a new agent team from scratch?**
-Read [bootstrapping-protocol.md](methodology/bootstrapping-protocol.md).
+Read the [practitioner's guide](methodology/agent-team-guide.md), starting with Section 4 if you're setting up a new team.
 
 **Want the full picture?**
-Read [agent-team-guide.md](methodology/agent-team-guide.md).
+Read [agent-team-guide.md](methodology/agent-team-guide.md) from the beginning.
 
 **Looking up a specific pattern:**
 
@@ -25,6 +25,13 @@ Read [agent-team-guide.md](methodology/agent-team-guide.md).
 - [self-modifying-briefs.md](methodology/self-modifying-briefs.md) — how agents evolve their own instructions
 - [writing-for-ai.md](methodology/writing-for-ai.md) — document quality principles for AI-consumed files
 - [learning-from-practice.md](methodology/learning-from-practice.md) — evidence tracking and continuous improvement
+
+## Exportable Skills
+
+Ready-to-use [Claude Code skills](https://agentskills.io) that implement patterns from this library. Copy any skill directory into your project's `.claude/skills/` to use it.
+
+- [build](skills/build/) — 6-step execution recipe for non-trivial implementation work (investigate, plan review, execute, code review, QA, close-out). Each step runs as a separate subagent with fresh context. Evidence-based — see the [research synthesis](skills/build/references/research-synthesis.md).
+- [skill-building](skills/skill-building/) — how to build, review, and improve Claude Code skills. Covers the Agent Skills open standard, progressive disclosure, description writing, and common failure modes.
 
 ## How This Repo Works
 

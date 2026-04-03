@@ -5,7 +5,7 @@ Patterns for building AI agent teams that coordinate through files, evolve their
 ## What do you need?
 
 **Starting a new agent team from scratch?**
-Read [bootstrapping-protocol.md](bootstrapping-protocol.md). It walks through assessment (do you even need agents?), creates the minimal viable team (team-lead + team-coach), and sets up the infrastructure for growth. Wire in the learning loop from [learning-from-practice.md](learning-from-practice.md) at setup — don't bolt it on later.
+Read [agent-team-guide.md](agent-team-guide.md), starting with Section 4. It walks through assessment (do you even need agents?), creates the minimal viable team (team-lead + team-coach), and sets up the infrastructure for growth — including wiring in the learning loop from [learning-from-practice.md](learning-from-practice.md) at setup, not bolting it on later.
 
 **Running a team and want to improve how it works?**
 Read [learning-from-practice.md](learning-from-practice.md). It describes how to embed lightweight observation in normal sessions, run deliberate experiments with structural choices, and accumulate evidence about what's working. Start with micro-observations at session close and an experiment log.

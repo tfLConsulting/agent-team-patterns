@@ -1,10 +1,10 @@
 # Team Lead — Memory
 
 ## Current State
-- **Session:** 4
+- **Session:** 6
 - **Date:** 2026-04-03
 - **Phase:** Editorial — working through prioritized improvements
-- **Last reconciled:** journal/2026-04-03-4.md
+- **Last reconciled:** journal/2026-04-03-6.md
 
 ## Goals
 - Curate and present the agent team methodology as a public patterns library
@@ -28,24 +28,30 @@
 - Team review #1 (session 3) — no changes, team right-sized for editorial phase
 - Researcher is the stronger future candidate (context-separation argument)
 - Retired team-coordination.md (session 4) — 4/5 sections redundant with guide, rescued 2 unique pieces
+- Retired bootstrapping-protocol.md (session 5) — ~60/85 lines redundant with guide, merged 6 unique pieces
+- Added exportable skills (session 6) — build recipe + skill-building, adapted from product-analyst-bot
 
 ## Editorial Roadmap (session 2, updated session 4)
 Priority-ordered improvements from methodology review:
 
 1. ~~Fix three-tier-memory.md~~ — **DONE (session 3).** Added Known Risks (pruning failure mode) and Related Patterns sections.
-2. **Reconcile bootstrapping path** — steps split between bootstrapping-protocol.md and guide Section 4
+2. ~~Reconcile bootstrapping path~~ — **DONE (session 5).** Merged 6 unique pieces into guide, retired bootstrapping-protocol.md.
 3. **Reduce guide/pattern redundancy** — guide restates pattern files instead of referencing them
 4. **Add concrete example** — reference agents/ as living worked example from methodology
 5. **Add full citations to writing-for-ai.md** — strongest evidence claims lack verifiable references
 
 ### File ratings from review
 - Strong: README, agent-team-guide, learning-from-practice, writing-for-ai
-- Adequate: bootstrapping-protocol, three-tier-memory (improved session 3), role-design, file-based-coordination, brief-anatomy, self-modifying-briefs
-- Retired: team-coordination (merged into agent-team-guide.md Section 2.5)
+- Adequate: three-tier-memory (improved session 3), role-design, file-based-coordination, brief-anatomy, self-modifying-briefs
+- Retired: team-coordination (session 4, merged into guide Section 2.5), bootstrapping-protocol (session 5, merged into guide Sections 3.6-3.7, 4, 12)
+
+### Exportable skills (`skills/`)
+- `build` — 6-step subagent orchestration recipe, evidence-based (Judy, Anthropic, CodeScene)
+- `skill-building` — meta-skill for creating Claude Code skills, covers Agent Skills standard
 
 ### Noted gaps (not yet prioritized)
 Error recovery, human-agent interface, cost management, platform portability
 (Strategic backlog pattern partially addressed — backlog-as-governance concept now in guide Section 2.5)
 
 ## Next Session Focus
-Editorial roadmap item #2: reconcile the bootstrapping path (bootstrapping-protocol.md vs agent-team-guide.md Section 4).
+Editorial roadmap item #3: reduce guide/pattern redundancy — the guide restates pattern files instead of referencing them. This is the same class of problem but inverted. The question is whether the guide should reference the pattern files or the pattern files should reference the guide.
