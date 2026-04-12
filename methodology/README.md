@@ -22,6 +22,10 @@ Each pattern has its own file:
 - [brief-anatomy.md](brief-anatomy.md) — how to write effective agent briefs
 - [self-modifying-briefs.md](self-modifying-briefs.md) — how agents evolve their own instructions
 - [writing-for-ai.md](writing-for-ai.md) — document quality principles for AI-consumed files
+- [discipline-processes.md](discipline-processes.md) — encoding discipline methodologies as structured skills
+- [coaching-framework.md](coaching-framework.md) — systems-level team assessment across five dimensions
+- [investigation-threads.md](investigation-threads.md) — living hypothesis documents that evolve across sessions
+- [load-bearing-beliefs.md](load-bearing-beliefs.md) — framing strategy as testable hypotheses with kill conditions
 
 ## Evidence base
 

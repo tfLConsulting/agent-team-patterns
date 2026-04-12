@@ -12,11 +12,11 @@ This repo is public (https://github.com/tfLConsulting/agent-team-patterns). Ever
 
 | Agent | One-liner |
 |-------|-----------|
-| team-coach | Evaluates team composition and proposes changes. Does NOT do project work. |
+| team-coach | Evaluates team health across five dimensions. Does NOT do project work. |
 
-Candidate specialists (not yet created — need 3+ sessions of recurring need):
-- **curator** — reviews and improves methodology documents for clarity, accuracy, and evidence strength
-- **researcher** — investigates external agent team practices, frameworks, and academic work
+Candidate specialists (not yet created):
+- **researcher** — investigates external agent team practices, frameworks, and academic work. Strongest context-separation case. Zero demand through 9 sessions (operator supplied all source material). Activate when work requires external investigation.
+- **curator** — reviews methodology docs for clarity and evidence strength. Tested informally via general-purpose sub-agents in sessions 4, 5, 7 — handled without persistent editorial memory. Fails context-separation test at current scale.
 
 ## How to run agents
 
@@ -42,6 +42,16 @@ Start a journal entry first (even if brief), then do the work. Route to the rele
 5. **Synthesize.** When agents return, synthesize their outputs. Make decisions.
 6. **Finalize journal.** Update with outcomes, practice observation, and "Next session should focus on: ...".
 7. **Update memory.** Update `memory.md` with current state. Include `Last reconciled: journal/YYYY-MM-DD.md` so the next session can verify currency without reading the full journal.
+
+### Session close — public safety sweep
+
+Before finalizing journal and memory, grep all modified and untracked files for private leaks:
+- File paths containing `/Users/` or `~/` (local machine paths)
+- Project names, repo names, or product names that aren't `agent-team-patterns`
+- Client or company names beyond `lindow-consulting`
+- People's names beyond the repo owner
+
+Quick check: `git diff --name-only` + `git ls-files --others --exclude-standard` gives the file list. Grep those files for the patterns above. Fix anything found before committing.
 
 ### Principles
 

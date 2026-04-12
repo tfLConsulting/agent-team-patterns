@@ -46,65 +46,35 @@ These are the patterns we've found to be load-bearing across all three projects.
 
 **The problem:** Agents told "you own content strategy" inevitably drift into design, analytics, implementation, and everything else nearby. Positive role definitions are insufficient boundaries.
 
-**What worked:** Defining what an agent does NOT do matters more than defining what it does. An agent told "you own content strategy; you don't write code, you don't make design decisions, you don't publish without review" stays in its lane.
+**What worked:** Defining what an agent does NOT do matters more than defining what it does. An agent told "you own content strategy; you don't write code, you don't make design decisions, you don't publish without review" stays in its lane. This was consistent across all three projects.
 
-Each agent's role has:
-- **Domain:** What slice of the problem space it owns
-- **Authority:** What decisions it can make autonomously (full authority over analysis and recommendations within domain; limited authority over cross-domain decisions; no authority over irreversible actions)
-- **Boundaries:** What it explicitly does NOT do — the adjacent roles it could drift into
-- **Inputs/Outputs:** What files it reads from other agents and what it produces
-
-Without negative rights, the agent will do everything itself and the team structure becomes pointless. This was consistent across all three projects.
+See [Role Design](role-design.md) for the full pattern including the authority gradient and criteria for when to create new roles.
 
 ### 2.2 Brief Anatomy: Set the Board, Don't Script the Game
 
 **The problem:** Over-specified briefs (step-by-step processes, tool-calling sequences, worked examples) produce brittle agents that fail when conditions change. Under-specified briefs produce aimless agents.
 
-**What worked:** A brief that gives enough context to start working without being prescriptive about how.
+**What worked:** A brief that gives enough context to start working without being prescriptive about how. The test: could a competent person in this role read the brief and start working on day one without asking clarifying questions? If yes, an agent can too.
 
-Effective briefs include:
-1. **Context** — the project situation, grounded in facts and specifics
-2. **Role** — domain, authority, boundaries (with negative rights)
-3. **Starting intelligence** — specific file paths to read, with reasons (not vague "read the analyst's findings regularly" but "read `agents/analyst/activation-analysis.md` — three failure modes, first-session output equals activation")
-4. **Approach** — methodology and frameworks, NOT step-by-step processes
-5. **Success criteria** — descriptive, not quantitative ("recommendations lead to decisions" is better than "produce 5 findings per session")
-6. **Memory protocol** — how to manage the three tiers
-
-**What effective briefs leave out:**
-- Worked examples of good output (anchors the agent to one pattern)
-- Quantitative KPIs (creates perverse incentives)
-- Step-by-step tool-calling sequences (set the board; the agent figures out how to play)
-- Approval chains (if it needs review, say who reviews; don't specify a multi-step process)
-
-**The test:** Could a competent person in this role read the brief and start working on day one without asking clarifying questions? If yes, an agent can too.
+See [Brief Anatomy](brief-anatomy.md) for the full seven-section structure, exclusion criteria, and the data sources section.
 
 ### 2.3 Three-Tier Memory: The Attention Management Problem
 
 **The problem:** The default for AI agents is amnesia. The common fix — "add a vector database" — introduces a retrieval problem on top of the memory problem. The agent doesn't control what gets surfaced. Wrong context at the wrong time causes failures.
 
-**What worked:** Plain files with intentional structure, organised by urgency.
+**What worked:** Plain files with intentional structure, organised by urgency. Three tiers: **hot** (`memory.md`, loaded every session — only what the agent can't function without), **warm** (topic files and scratchpad — pulled when relevant, not loaded by default), and **cold** (`archive/` — monthly compressed summaries for search, not regular consumption).
 
-**Hot tier (`memory.md`, under 200 lines):** Loaded every session. Contains only what the agent can't function without — current priorities, recent decisions, next actions, key numbers. Every line competes for the agent's attention, so unnecessary content directly degrades performance.
+The 200-line limit on hot memory is the load-bearing constraint. Without it, memory files grow unbounded until the agent is effectively context-stuffing itself into confusion. But it also creates a specific failure mode — see Section 3.1.
 
-**Warm tier (topic files, `scratchpad.md`):** Not loaded by default, but the agent knows where to find them. Structured research, analysis, reference data. The scratchpad is a workspace for in-progress thinking, cleared each session.
-
-**Cold tier (`archive/`):** Monthly compressed summaries. Exists for search, not regular consumption.
-
-**The consolidation ritual at session end:** Everything in the scratchpad is triaged — promote to hot if next session needs it, promote to warm if it's enduring reference, archive if historical, discard by default. Then prune memory.md back under 200 lines.
-
-The 200-line limit is the load-bearing constraint. Without it, memory files grow unbounded until the agent is effectively context-stuffing itself into confusion. But it also creates a specific failure mode — see Section 3.1.
+See [Three-Tier Memory](three-tier-memory.md) for the consolidation triage rubric, maintenance triggers, and known risks.
 
 ### 2.4 File-Based Coordination: One-Way Information Flows
 
 **The problem:** Bidirectional dependencies between agents create circular waits and shared-state bugs.
 
-**What worked:** Agents collaborate through completed outputs, not shared reasoning. Agent A writes a file. Agent B reads it when relevant. No bidirectional dependency, no waiting for responses, no shared context window.
+**What worked:** Agents collaborate through completed outputs, not shared reasoning. Agent A writes a file. Agent B reads it when relevant. No bidirectional dependency, no waiting for responses, no shared context window. This also makes the system inherently observable — every piece of agent reasoning that matters is in a file. No logging framework needed — the files ARE the log.
 
-Each agent's brief specifies what files it reads from other agents and what files it produces. These are explicit contracts.
-
-Directory structure reflects information architecture: each agent owns its directory, no agent writes to another agent's directory, shared knowledge lives in a `shared/` directory. If you can't tell what an agent does from its directory contents, the role isn't clear enough.
-
-This also makes the system inherently observable. Every piece of agent reasoning that matters is in a file. You can trace any decision back through the file chain. No logging framework needed — the files ARE the log.
+See [File-Based Coordination](file-based-coordination.md) for contract templates, flow examples, and the debugging/observability model.
 
 ### 2.5 The Team Lead as Router
 
@@ -452,6 +422,8 @@ When a team hits a domain expertise gap:
 
 This meta-pattern — "when you don't know how to specify well in a domain, research it and encode what you learn" — is the portable insight. It teaches teams to close their own knowledge gaps rather than depending on external intervention.
 
+For detailed guidance on structuring discipline processes as skills — progressive disclosure, anti-patterns, human checkpoints, quality rubrics, and the meta-process for building skills — see [discipline-processes.md](discipline-processes.md).
+
 ### Evidence Base
 
 This is validated (N=1 project, 4 sessions, measured improvement from 5/10 to 7.8/10). The finding that specification is the bottleneck is clean and has held up to scrutiny. The meta-pattern itself is a hypothesis derived from one instance. We believe it's likely portable but haven't tested it across diverse domains.
@@ -496,32 +468,13 @@ The key principle: teams should be able to operate independently. If team A's se
 
 Agents can propose and make changes to their own role definitions, strategy documents, and operating procedures. This is what separates an agent team that learns from one that merely executes.
 
-### What Can Change
-
-- **Briefs:** Role definitions, authority boundaries, inputs/outputs
-- **Strategy:** Priorities, hypotheses, positioning
-- **Team composition:** Proposing new agents or retiring ones (via team coach)
-- **Memory protocol:** How information flows between tiers
-- **Operating procedures:** Session protocols, maintenance triggers
-
-### What Makes It Safe
-
-Self-modification without discipline is chaos. The constraints:
-
-1. **Journal everything.** Every modification is recorded with what changed and why. This creates accountability and allows rollback.
-2. **Research before changing.** Don't modify based on a hunch. The research-first loop applies to self-modification too.
-3. **Preserve core commitments.** Honesty and research-first thinking don't change. Everything else is fair game.
-4. **Human review for irreversible changes.** Adding a new agent, changing strategic direction, retiring a role — these warrant discussion. Tweaking a session protocol doesn't.
-
-### In Practice
-
-From our 8-agent team running 1+ month: the team lead updated the strategy document 5 times as understanding deepened. An SEO analyst role was created when three recurring needs were identified. The memory protocol was overhauled when files grew too large — the agent team designed its own fix. Session protocols evolved from rigid checklists to flexible directed/undirected modes.
-
-None of these changes required human intervention to identify. The agents surfaced the problems, proposed solutions, and implemented them. The human reviewed and approved.
+Everything is in scope for modification — briefs, strategy, team composition, memory protocols, operating procedures. The scope is broad; the discipline is what makes it safe. Changes require journaling (what changed and why) and research (not hunches), with human review reserved for irreversible changes like adding agents or shifting strategic direction.
 
 ### Premature Rigidity
 
 A failure mode worth flagging: the bootstrapped structure gets treated as permanent. Nobody exercises self-modification because the bootstrap felt authoritative. The bootstrapped team is deliberately underpowered and provisional. Everything should change as the team learns what it actually needs. If the brief from session 0 is still unchanged at session 15, something is wrong.
+
+See [Self-Modifying Briefs](self-modifying-briefs.md) for the full pattern including scope categories, constraints, practical examples, and external research context.
 
 ---
 
