@@ -60,7 +60,7 @@ Sometimes a kill condition fires but the problem is the measurement, not the bel
 
 The discipline is checking both: when a kill condition triggers, ask two questions in sequence. First: is the measurement reliable? If the data is noisy, the criteria ambiguous, or the sample too small, the kill condition may have fired prematurely. Second: if the measurement is sound, what does it mean for the belief?
 
-This two-step check prevents both failure modes — abandoning a sound belief based on bad data, and clinging to a broken belief by blaming the measurement. The order matters: check the measurement first, honestly, and only then evaluate the belief.
+This two-step check prevents both failure modes — abandoning a sound belief based on bad data, and clinging to a broken belief by blaming the measurement. The order matters: check the measurement first, honestly, and only then evaluate the belief. For the broader discipline of metric reliability beyond kill conditions, see `measurement-skepticism.md`.
 
 ## Belief Lifecycle
 

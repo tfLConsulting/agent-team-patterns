@@ -14,9 +14,10 @@ This repo is public (https://github.com/tfLConsulting/agent-team-patterns). Ever
 |-------|-----------|
 | team-coach | Evaluates team health across five dimensions. Does NOT do project work. |
 
-Candidate specialists (not yet created):
-- **researcher** — investigates external agent team practices, frameworks, and academic work. Strongest context-separation case. Zero demand through 9 sessions (operator supplied all source material). Activate when work requires external investigation.
-- **curator** — reviews methodology docs for clarity and evidence strength. Tested informally via general-purpose sub-agents in sessions 4, 5, 7 — handled without persistent editorial memory. Fails context-separation test at current scale.
+Candidate specialists (activate when both tests pass):
+- **Two-part test:** Recurring need (3+ sessions) AND context separation (different loaded context from existing agents)
+- **researcher** — external investigation role. Activate when pattern work requires sources beyond operator-supplied material.
+- **curator** — editorial consistency role. Activate when cross-reference or consistency maintenance across methodology files becomes a recurring burden.
 
 ## How to run agents
 

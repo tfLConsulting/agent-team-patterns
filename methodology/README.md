@@ -26,6 +26,9 @@ Each pattern has its own file:
 - [coaching-framework.md](coaching-framework.md) — systems-level team assessment across five dimensions
 - [investigation-threads.md](investigation-threads.md) — living hypothesis documents that evolve across sessions
 - [load-bearing-beliefs.md](load-bearing-beliefs.md) — framing strategy as testable hypotheses with kill conditions
+- [codification-ladder.md](codification-ladder.md) — when recurring practices deserve to be written down, and in what form
+- [session-transaction-protocol.md](session-transaction-protocol.md) — fault-tolerant session boundaries with dirty-close detection and reconciliation
+- [measurement-skepticism.md](measurement-skepticism.md) — why agent team metrics are structurally fragile, and the discipline of checking the measurement before interpreting the result
 
 ## Evidence base
 

@@ -106,6 +106,8 @@ The framework should be versioned (v1, v2, etc.) and treated as a mutable experi
 
 ## The Codification Ladder
 
+*This section summarises the codification ladder. For the full treatment — promotion heuristics, anti-patterns, lifecycle management — see `codification-ladder.md`.*
+
 Coaching reviews surface recurring patterns. Not all of them should be formalised. A two-part test determines whether a pattern is worth codifying:
 
 1. **Recurrence.** Has it happened three or more times?
@@ -153,7 +155,8 @@ The framework aligns with general systems-thinking principles (evaluating a syst
 
 - `role-design.md` — domain ownership and authority boundaries (dimension 1: specification quality)
 - `three-tier-memory.md` — memory architecture (dimension 2: state management)
-- `discipline-processes.md` — encoding processes as skills (dimension 3: process maturity, and the codification ladder)
+- `discipline-processes.md` — encoding processes as skills (dimension 3: process maturity)
+- `codification-ladder.md` — when to formalise recurring patterns and at what level (dimension 3: process maturity)
 - `file-based-coordination.md` — information flow through files (dimension 4: information architecture)
 - `learning-from-practice.md` — experiment tracking and confidence levels (dimension 5: evolutionary fitness, and the evidence framework used here)
 - `brief-anatomy.md` — how to write effective briefs (relevant to specification quality assessment)
