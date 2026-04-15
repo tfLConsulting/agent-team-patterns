@@ -6,13 +6,13 @@ Every document an agent reads competes for its attention. This applies to briefs
 
 The intuition that comprehensive documentation helps is wrong for AI agents. The evidence is consistent and cross-validated:
 
-- **Restating what code already expresses** causes a 2-3% performance *decrease* — worse than no documentation at all (ETH Zurich, AGENTbench 2026).
-- **Verbose coherent prose** performs worse than shuffled fragments of the same content. Models extract information from structure, not narrative flow (Chroma "Context Rot" study, 194k LLM calls across 18 models).
-- **Instruction density degrades accuracy.** At 100+ instructions, accuracy drops to 50-98%. At 500+, the best model hits 63%. Omission errors are 30x more frequent than modification errors at high instruction counts — agents don't get things wrong, they miss things entirely.
-- **Mid-document information gets lost.** Positional encoding creates architectural attention bias toward the beginning and end of context. Content buried in the middle is systematically under-weighted (Liu et al., TACL 2024).
-- **Semantically similar but incorrect content** is far more damaging than obviously irrelevant text. A document about the wrong pricing model does more harm than a document about unrelated infrastructure (ICLR 2025).
+- **Restating what code already expresses** causes a 0.5–2% performance *decrease* — worse than no documentation at all (Gloaguen et al., "Evaluating AGENTS.md: Are Repository-Level Context Files Helpful for Coding Agents?", arXiv:2602.11988).
+- **Verbose coherent prose** performs worse than shuffled fragments of the same content. Models extract information from structure, not narrative flow (Hong, Troynikov & Huber, "Context Rot: How Increasing Input Tokens Impacts LLM Performance," Chroma Technical Report, 2025).
+- **Instruction density degrades accuracy.** At 100+ instructions, accuracy drops to 27–98% depending on the model. At 500+, the best models hit 63–69%. Omission errors are 30x+ more frequent than modification errors at high instruction counts — agents don't get things wrong, they miss things entirely (Jaroslawicz et al., "How Many Instructions Can LLMs Follow at Once?", arXiv:2507.11538).
+- **Mid-document information gets lost.** Positional encoding creates architectural attention bias toward the beginning and end of context. Content buried in the middle is systematically under-weighted (Liu et al., "Lost in the Middle: How Language Models Use Long Contexts," TACL, 2024).
+- **Semantically similar but incorrect content** is far more damaging than obviously irrelevant text. A document about the wrong pricing model does more harm than a document about unrelated infrastructure (Jin et al., "Long-Context LLMs Meet RAG: Overcoming Challenges for Long Inputs in RAG," ICLR, 2025).
 - **Stale claims corrupt downstream reasoning.** Incorrect information doesn't just cause local errors — it poisons the chain of reasoning that follows.
-- **Large filled context windows** cause mild accuracy loss (~0.5%) but latency spikes up to 719%. Every unnecessary line costs processing time even when it doesn't cause errors.
+- **Large filled context windows** cause mild accuracy loss (~0.5%) but latency spikes up to 719%. Every unnecessary line costs processing time even when it doesn't cause errors (Ayyachamy et al., "Context Discipline and Performance Correlation," arXiv:2601.11564).
 
 ## What Works
 
@@ -30,7 +30,7 @@ The intuition that comprehensive documentation helps is wrong for AI agents. The
 
 ## Self-Check
 
-Before committing any document an agent will read, apply these tests (adapted from Anthropic's guidance on AI-readable documentation):
+Before committing any document an agent will read, apply these tests (adapted from Anthropic's Claude Code best practices and context engineering guidance):
 
 1. Would removing any line cause an agent to make a mistake? If not, cut it.
 2. Does anything here repeat what's visible in code, config, or standard conventions?
@@ -52,3 +52,12 @@ Before committing any document an agent will read, apply these tests (adapted fr
 ## The Meta-Principle
 
 This document should practice what it preaches. If it were longer, it would be worse. The research points in one direction: for AI-consumed documents, the editing question is never "what should I add?" It's "what can I cut?"
+
+## References
+
+- Ayyachamy, A. et al. (2026). "Context Discipline and Performance Correlation." arXiv:2601.11564.
+- Gloaguen, T. et al. (2026). "Evaluating AGENTS.md: Are Repository-Level Context Files Helpful for Coding Agents?" arXiv:2602.11988.
+- Hong, K., Troynikov, A. & Huber, J. (2025). "Context Rot: How Increasing Input Tokens Impacts LLM Performance." Chroma Technical Report.
+- Jaroslawicz, D. et al. (2025). "How Many Instructions Can LLMs Follow at Once?" arXiv:2507.11538.
+- Jin, B. et al. (2025). "Long-Context LLMs Meet RAG." ICLR 2025.
+- Liu, N. F. et al. (2024). "Lost in the Middle: How Language Models Use Long Contexts." TACL, 12, 157–173.
