@@ -60,6 +60,22 @@ A team considering "average session length" as a productivity proxy should ask: 
 
 This isn't a reason not to measure. It's a reason to understand what the metric can and cannot tell you before you start relying on it.
 
+### Ruler-Change Tagging
+
+When a metric's definition shifts while its name stays the same, tag the change explicitly rather than treating it as a normal data point. A dedicated log entry records: what the metric measured before, what it measures now, whether the historical baseline is preserved or reset, and the count delta introduced by the definition change alone.
+
+The point isn't to avoid changing definitions — in a self-modifying team, definitions must be allowed to evolve. It's to prevent the before/after comparison from being contaminated by the shift itself. If "useful output" was redefined between sessions 30 and 31 to be stricter, and the next reported rate is lower, the drop might be entirely explained by the redefinition. Without an explicit ruler-change tag, that explanation gets lost within a few sessions, and the redefinition looks like regression.
+
+Distinguish ruler-changes from corrections (fixing a miscount under the same ruler) and reframes (changing what the metric is used for). All three are legitimate; conflating them erases longitudinal integrity. A one-line convention in the journal or metric log — `ruler-change: X → Y, baseline preserved, count delta = -2` — is enough to make the category visible. The discipline is recognising which of the three happened, not the specific tag syntax.
+
+### Briefing-Provenance Checks
+
+Before a number from prior-session memory is used to justify a new directive, re-measure it against source data. Memory entries drift: an initial observation becomes a summarised claim, then a cited fact, then an input to the next plan — with each step obscuring whether the original measurement still holds under current definitions.
+
+The protocol is simple. When any agent is about to act on a count or rate pulled from `memory.md` or a prior journal entry, treat that number as a claim requiring verification rather than a fact. Re-count from the source — journal entries, methodology files, whatever the metric was originally drawn from. If the number has changed, update memory and note the drift; if it hasn't, proceed.
+
+This guards against a specific failure mode — memory-as-truth drift — that the three-tier model (`three-tier-memory.md`) is vulnerable to by design. Memory exists so the next session doesn't re-read everything; briefing-provenance ensures that labour-saving doesn't compound into decision-making on stale numbers. The rule only needs to fire when a remembered number is about to drive action — not every memory read, which would defeat the point of memory.
+
 ## Anti-Patterns
 
 **Metric fixation.** Treating a number as the reality it's meant to represent. "Our compliance rate is 85%" becomes "we're 85% compliant" — but the compliance rate might be measuring whether a file was updated, not whether the update was meaningful. The map is not the territory, and agent team metrics are particularly rough maps.
@@ -92,6 +108,8 @@ The core claim — that measurements are wrong more often than the thing being m
 
 The practices (metric auditing, stating the N, pre-mortem on new metrics) are structural proposals informed by that practice, not codified processes that were run as described. They represent what the source team did informally, extracted and structured into a pattern.
 
+The two more specific sub-practices — **ruler-change tagging** and **briefing-provenance checks** — have a narrower evidence base. Both were observed in a second agent team that evolved them after encountering the failure modes they address (definition-shift contamination and memory-as-truth drift respectively). They haven't yet been tried in the team documenting this pattern. Treat them as **Observed (1 team, specific catches)**: well-motivated, but imported rather than independently confirmed. Teams considering them should notice whether the underlying failure mode is actually occurring before adopting the protocol.
+
 No controlled comparison exists between teams practising measurement skepticism and teams that don't. The claimed benefit — avoiding decisions based on bad data — is observed but not isolated from other factors (the source team also practised load-bearing beliefs, investigation threads, and coaching reviews, all of which contribute to evidence quality).
 
 ## Related Patterns
@@ -101,3 +119,4 @@ No controlled comparison exists between teams practising measurement skepticism 
 - `coaching-framework.md` — Level 3 (Measured) on the maturity ladder assumes the measurements are reliable; measurement skepticism asks whether that assumption holds
 - `investigation-threads.md` — threads accumulate evidence that may itself be unreliable; measurement skepticism applies to the evidence entries, not just to aggregate metrics
 - `session-transaction-protocol.md` — dirty closes create survivorship bias in session data, one of the structural fragilities this pattern addresses
+- `three-tier-memory.md` — briefing-provenance checks guard the hot tier against memory-as-truth drift, a failure mode the three-tier model is particularly exposed to

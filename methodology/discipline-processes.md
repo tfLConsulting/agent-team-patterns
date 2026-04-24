@@ -14,7 +14,7 @@ A library of discipline skills creates a context management problem. Twenty skil
 
 **Tier 3 — References.** Deep domain knowledge, loaded on demand during execution. Spacing systems, accessibility standards, competitive frameworks, scoring rubrics. An agent working through a design review loads the review rubric when it reaches that phase, not at session start.
 
-This structure means a library of 20+ skills costs almost nothing when idle and loads depth only when active. The alternative — everything in the brief or project instructions — is how you get 500-instruction contexts where accuracy drops to 63%.
+This structure means a library of 20+ skills costs almost nothing when idle and loads depth only when active. The alternative — everything in the brief or project instructions — is how you get 500-instruction contexts where the best models drop to 63–69% accuracy (see `writing-for-ai.md` for the underlying instruction-density research).
 
 **Evidence:** Practised (1 team, 150+ sessions). The three-tier structure prevented context bloat as a skill library grew to 22 skills across 7 domains. No controlled comparison against flat loading, but the directional evidence from instruction-density research (cited in `writing-for-ai.md`) supports the architecture.
 
