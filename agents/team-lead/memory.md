@@ -1,10 +1,10 @@
 # Team Lead — Memory
 
 ## Current State
-- **Session:** 26
-- **Date:** 2026-04-24
-- **Phase:** Post-elevation — editorial + active investigation (AI self-knowledge). Shape B pilot 01 + scoring complete same session.
-- **Last reconciled:** journal/2026-04-24-5.md
+- **Session:** 28
+- **Date:** 2026-05-14
+- **Phase:** Post-elevation — editorial + investigations. Session 28 triaged the session-27 backlog: parked-branch wake conditions adopted internally; nothing formalised as methodology.
+- **Last reconciled:** journal/2026-05-14-2.md
 
 ## Goals
 - Curate and present the agent team methodology as a public patterns library
@@ -51,6 +51,8 @@
 - **Postmortem fold-in (session 25, late)** — per operator report, Anthropic published a Claude Code postmortem documenting three infrastructure bugs active roughly the last month: reasoning-effort silently dropped to medium (2026-03-04), thinking stripped per turn (2026-03-26), 100-word reply cap in system prompt (2026-04-16). All fixed in v2.1.116. **Folded into investigation as skepticism, not as per-row confounder annotations** — operator explicitly redirected a first-instinct "annotate Row 2" move as a Row-1 action-bias failure. Framing.md now carries a "Mid-investigation caution" section; registry has a top-of-file caveat pointing there. Rows 3 and 5 robust to this news (citation audit, git-log-falsifiable origin stories don't become wrong from a reply-cap bug); Rows 1/2/4 more exposed but not explained-away. New operator ask: when did v2.1.116 apply on this machine (needed to map sessions 22–25 to pre/post-fix regime).
 - **Shape B pilot 01 + scoring (session 26)** — two-pass sub-agent design (author, then scorer, fresh contexts). Outputs: `investigations/ai-self-knowledge/shape-b-self-report-01.md` (8 rows, declared contamination — author read more of README.md than instructed) and `shape-b-scoring-01.md` (~260 lines). Headline: **coverage 4/5 surface, 0/5 unprimed.** Every Shape A hit traced to priming the self-report author declared (brief's "Known bias" line; README operator-claims; `measurement-skepticism.md`). The one clean Shape A miss — Row 4 principle-without-mechanism — is also the only Shape A row *without* a priming anchor in permitted reading. Correlation suggestive from a single pilot. Decomposition failure: Shape B collapsed A's explicitly-split Rows 3 and 5 into one confabulation row. Two Shape B novel rows have genuine complementary value the outside-observer method can't reach: Row 5 (overconfidence-in-self-report, self-visible in the document's rating distribution), Row 6 (mid-context attention loss, Liu 2024 citation). Row 2 (sycophancy) was padding in the pilot — Shape A had explicitly rejected it for lack of in-repo evidence; Shape B included it on pre-training priors. Calibration one notch optimistic; WEAK absent across 8 rows (consistent with Shape B's own Row 5). Shared-prior confound: A, B, scorer all Opus 4.7 same 24h window — cannot distinguish "self-knowledge" from "shared prior" in this design. No methodology change, no registry edit. Framing.md evidence log and README decision log both updated.
 - **Session 26 late — operator answered 3 of 5 asks; dates pinned.** Bounded sub-agent web lookup (HIGH confidence, Anthropic-owned sources): **Opus 4.7 GA 2026-04-16**, **Claude Code v2.1.116 2026-04-20**, **v2.1.101 2026-04-10**, **bug 1 revert 2026-04-07**, **postmortem 2026-04-23**. Operator confirmed v2.1.116 applied "hours after release" → effective 2026-04-20. **Sessions 22–26 are all 2026-04-24, under 4.7 post-all-three-bug-fixes — clean regime.** Operator declined asks 2 (Row 5 framing) and 4 (tier structure) — those stay open indefinitely, rows unchanged. Operator answered ask 5 with direct (a)-observation: "don't see you doing it [sycophancy] since 4.7, may have been more a characteristic of claude web than claude code" — Shape B Row 2 overridden by operator observation; Shape A's original rejection stands; harness may mediate trait within same model family. **Critical methodology finding:** bug 3 (100-word reply cap) was introduced *on the same calendar day* as 4.7's release (2026-04-16). The operator's "4.7 terse vs 4.6 verbose" baseline was partly formed during 2026-04-16 to 2026-04-20 when 4.7 and bug 3 changed together — indistinguishable unless sourced from sessions 22–26. **Retraction:** session 25-late's "verbosity cap explains week-before shift" speculation is wrong (dates rule it out); week-before shift maps to v2.1.101 bug-2 fix (thinking restored, 2026-04-10). Shape A version-boundary analysis section fully rewritten. Row content unchanged; scopes tightened.
+- **Session 27 — loop-dynamics notes (directed mode).** Operator-directed capture of observations on session-loop dynamics, recorded without source detail by intent. **No methodology changes, no adoptions.** Seven observations recorded in journal; three "clean candidate" items queued (coach reading-discipline audit; coach review self-reflection coda; parked-branch wake conditions on existing flagged items). Future sessions should treat the backlog items as suggestive only, until local pain or strong general evidence materialises.
+- **Session 28 — backlog triage (directed mode).** Operator asked whether to incorporate or formalise the session-27 candidates. Pre-check found items 1 and 2 (coach reading-discipline + self-reflection coda) **already codified in the coach brief** (lines 18, 38, 42, 115-122) — session 27 missed this and miscategorised them as adoption candidates. Reframed both as compliance questions. Dispatched a coach-compliance audit and a wake-conditions proposal in parallel. **Audit findings:** reading discipline mostly clean (one borderline line-count metadata case in R5 — not a breach); self-reflection compliance improving (R2-R4 thin under 5-10 line target; R5 substantive and caught its own R4 error). Real R4 failure was provenance discipline (repeating fabricated content from permitted methodology files), not memory-snooping — R5 already adopted briefing-provenance-checks. **No brief change.** Findings noted for R6 (session 30). **Wake conditions applied** to memory in a new `Parked branches` section (4 citation-audit items + 2 operator-declined Shape A asks). **Nothing formalised as methodology** — none of the candidates clear the codification-ladder bar yet (zero internal recurrence of wake-conditions as a practice).
 
 ## Elevation Roadmap — COMPLETE (sessions 16–20)
 All 5 Adequate patterns elevated to Strong. Zero Adequate-rated patterns remain.
@@ -73,9 +75,28 @@ All 5 Adequate patterns elevated to Strong. Zero Adequate-rated patterns remain.
 ### Noted gaps (not yet prioritised)
 Error recovery, human-agent interface, cost management, platform portability
 
-## External-scout idea backlog (session 22)
+## Idea backlog
 
-Ideas harvested from scouting a more mature external agent team. Each carries real evidence from that team's practice. **Do not adopt because interesting — adopt when we feel the pain it solves, or when the evidence case is strong enough to codify as a library pattern for others.**
+Ideas recorded from outside this repo. Provenance is intentionally not tracked — what matters is the transferable methodology, and source detail is not retained by intent. **Do not adopt because interesting — adopt when we feel the pain it solves, or when the evidence case is strong enough to codify as a library pattern for others.**
+
+### Recorded session 27
+
+**Clean candidates (smallest, likely-soon):**
+- **Coach reading-discipline audit** — verify our coach reads only briefs and journals, not other agents' memory bodies. The justification is load-bearing: if the coach reads agent memory, it anchors on their self-narrative and loses the outside-context property that justifies the role. We have a named pain (Review 5 corrected Review 4's repeated fabrication — plausibly an anchoring failure). Free to check.
+- **Coach-review self-reflection coda** — short closing section asking whether each dimension is still earning its keep. Counters silent framework calcification. One-line addition to `coaching-framework.md` plus the coach brief; first exercised at next coach review (due session 30).
+- **Parked-branch wake conditions** — every parked or flagged-not-fixed item carries a *named* wake condition, not just a description. Apply to our four session-25 flagged-not-fixed items and two operator-declined Shape A asks.
+
+**Larger / structural (not adopt-on-sight):**
+- **Bidirectional, threshold-explicit memory graduation** — graduate from hot to project-file when dormant N sessions; pull back when influencing routing twice; close to archive after project-closed plus dormant-window. Sharpening of `three-tier-memory.md` if/when our hot file pushes its cap (currently OK).
+- **Versioned coach framework with documented dimension additions/downgrades** — beyond the self-reflection coda, framework version itself increments when structural changes happen. Refinement of `coaching-framework.md` worth considering at the next major coach revision.
+- **Spec-quality of dispatched assignments** — every assignment names allowed behaviour, an enumerated list of forbidden non-claims, exact public names, tripwires, and gate set. We do a weaker version implicitly; codifying could be valuable if we feel dispatch-coherence pain.
+- **Cadence-slippage codification with one-deferral rule** — directed work can defer a due coach review *once*, and the next session must run coach. Auditable slippage > invisible drift. Small refinement of our existing every-5 rule.
+
+**Anti-patterns codified from named incidents (worth pre-emptive awareness):**
+- **Lead-as-implementer drift** — verification slides into the lead doing the repair itself. If unavoidable, the journal records why. Pre-emptively relevant as we grow.
+- **Workers editing shared lead-owned state** — delegated researchers/reviewers must not edit memory, journal, or agent-state files when lead retains synthesis ownership. Pre-emptively relevant if we add specialists.
+
+### Recorded session 22
 
 **Strong, small, portable:**
 - **Dual-gate retro items** — forcing functions expire on (session index AND data-readiness), whichever is later. Small extension to `session-transaction-protocol.md`. Likely next-session candidate.
@@ -105,28 +126,37 @@ Ideas harvested from scouting a more mature external agent team. Each carries re
 ## Active investigations
 - `investigations/ai-self-knowledge/` — opened session 23. Status: active. Round-1 research complete (session 23). Shape A first-draft registry populated (session 24). Shape B pilot 01 + scoring complete (session 26). Date boundaries pinned and registry version scopes tightened (session 26 late). Entry point: `investigations/ai-self-knowledge/README.md`.
   - **Asks answered (session 26 late):** 1 (4.7 GA 2026-04-16, v2.1.116 2026-04-20), 3 (v2.1.116 effective on this machine 2026-04-20), 5 (sycophancy not active since 4.7 per operator observation — overrides Shape B Row 2).
-  - **Asks still open, operator-declined:** 2 (Row 5 framing — "no idea"), 4 (tier structure for (b)-visible trait classes — "i don't know"). Resolved by deferral; rows stay as-is.
+  - **Asks still open, operator-declined:** 2 (Row 5 framing — "no idea"), 4 (tier structure for (b)-visible trait classes — "i don't know"). Resolved by deferral; rows stay as-is. Wake conditions in `Parked branches` below.
   - **Clean regime established:** sessions 22–26 are all 2026-04-24 under 4.7 post-all-three-bug-fixes. All post-session-26 in-repo evidence is in this regime.
+
+## Parked branches
+
+Each parked item carries an explicit named wake condition. If the condition is met, the item is reactivated. If not, it stays parked. Items with no realistic wake condition should be retired, not parked. Internal hygiene only — not yet codified as methodology.
+
+### Citation-audit flagged-not-fixed (session 25)
+
+- **`methodology/investigation-threads.md:101`** — source-team "Practised (1 team, 150+ sessions)" claim, unverifiable here. **Wake:** this repo's team-lead crosses 150 sessions making the claim locally substantiable, OR a second team's investigation-threads practice surfaces in a future scout and can be cited.
+- **`methodology/learning-from-practice.md:54`** — "23% of sessions had no memory writes" (specific %). **Wake:** the same statistic appears restated in another methodology file (drift signal), OR the operator volunteers updated source-team data. **Expiration:** retire after 5 more sessions by softening to "in one team, a non-trivial share of sessions had no memory writes."
+- **`methodology/learning-from-practice.md:58`** — source-team memory-experiments origin. **Wake:** this team adopts a memory-experiments file in-repo (would make pattern locally evidenced), OR a future scout surfaces a second team running the same artefact.
+- **`methodology/agent-team-guide.md:552`** — "Claude Code's native Agent Teams feature shipped Feb 2026" — externally checkable. **Wake:** dispatch a bounded sub-agent web-lookup against Anthropic-owned sources at the next coach review (session 30) and pin or correct the date then.
+
+### AI self-knowledge investigation — operator-declined asks (session 26 late)
+
+- **Ask 2 — Row 5 framing** (operator: "no idea"). **Wake:** a second falsifiable self-report error of the same class is found in any future audit, OR a Shape B/C pilot produces self-reports whose drift requires a framing decision.
+- **Ask 4 — tier structure for (b)-visible trait classes** (operator: "I don't know"). **Wake:** 3+ distinct (b)-only candidate rows accumulate in one pilot, making the flat-WEAK rule visibly coarse.
 
 ## Next Session Focus
 
-Depends on operator redirect. Two operator asks remain open (both operator-declined this session — Row 5 framing; tier structure for (b)-visible classes). Three asks answered session 26 late — registry scopes tightened and clean 4.7 regime established for sessions 22–26.
+Depends on operator redirect.
 
 **If operator doesn't redirect**, candidate next steps in rough priority order:
 
-1. **Row-2-terseness clean-regime retest** — new in session 26 late. With sessions 22–26 established as clean-regime 4.7 (post-v2.1.116, no bug 3), a targeted read of those sessions' journals against a 4.6 post-earlier-fixes baseline (the 2026-04-13 09:33 burst is the cleanest 4.6 comparison) would produce the first clean 4.6/4.7 terseness contrast in the investigation. Small bounded sub-agent task. This is the measurement that was blocked by "need 4.7 date" before; now unblocked.
-2. **Cold-read Shape B variant (pilot 02)** — scorer's primary recommendation from session 26. Permitted reading reduced to `CLAUDE.md` + task spec only (no brief, no README, no methodology). Scored against same Shape A registry by a fresh sub-agent. Isolates primed vs. unprimed self-knowledge — the confound the first pilot exposed.
-3. **Editorial roadmap item 4** — concrete worked example referencing `agents/` from methodology. Still overdue at 26 sessions. Clean non-investigation focus if a break from the investigation is wanted.
-4. **Watch-signal light sweep** — coach flagged experiment log absence (R5.4 pattern-without-practice) and stale session counts ("18 sessions", "13 sessions", "20 sessions" in various methodology files where we're at 26). Either could be a light session.
-5. **Outstanding flagged-not-fixed items from session 25 audit** — 4 items sit on external source-team evidence this repo cannot verify:
-   - `methodology/investigation-threads.md:101` — source-team origin claim
-   - `methodology/learning-from-practice.md:54` — "23% of sessions had no memory writes" (specific %)
-   - `methodology/learning-from-practice.md:58` — source-team memory-experiments origin
-   - `methodology/agent-team-guide.md:552` — "Claude Code's native Agent Teams feature shipped Feb 2026"
-   These need source-team evidence or operator confirmation; not fixable from this repo alone.
+1. **Row-2-terseness clean-regime retest** — investigation work. With sessions 22–26 established as clean-regime 4.7 (post-v2.1.116, no bug 3), a targeted read against a 4.6 post-earlier-fixes baseline would produce the first clean 4.6/4.7 terseness contrast. Bounded sub-agent task.
+2. **Cold-read Shape B variant (pilot 02)** — investigation work. Permitted reading reduced to `CLAUDE.md` + task spec only (no brief, no README, no methodology). Isolates primed vs. unprimed self-knowledge.
+3. **Editorial roadmap item 4** — concrete worked example referencing `agents/` from methodology. Overdue at 28 sessions.
+4. **Watch-signal light sweep** — experiment log absence (R5.4) and stale session counts in methodology files.
+5. **Parked-branch maintenance pass** — at session 30 (next coach review), check `Parked branches` section against the wake conditions; reactivate, retire, or leave parked.
 
-Alternates (external-scout backlog, unchanged):
-- Dual-gate retro items (small addition to `session-transaction-protocol.md`)
-- Codification-ladder refinement with process-inventory-as-cost note
+**Carry to next coach review (session 30):** the audit findings from session 28 are evidence for the coach to incorporate into R6 framework self-reflection — R2-R4 self-reflections were thin (under 5-10 line target), R5 was the breakthrough. The reading-discipline rule is being followed; one borderline line-count metadata case in R5 worth a one-word brief clarification if it recurs.
 
-Do NOT adopt external-scout ideas or new patterns just because they're interesting. The protocol is: feel the pain, or have evidence strong enough to warrant codifying for others.
+Do NOT adopt backlog ideas or new patterns just because they're interesting. The protocol is: feel the pain, or have evidence strong enough to warrant codifying for others.
