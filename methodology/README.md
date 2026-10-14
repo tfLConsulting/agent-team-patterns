@@ -1,3 +1,5 @@
+> Historical application (April–May 2026). For current guidance, start with [the design library](../README.md) and [current instructions](../AGENTS.md). This document retains its original assumptions and evidence limits.
+
 # Methodology
 
 Patterns for building AI agent teams that coordinate through files, evolve their own instructions, and run in plain-text repos.

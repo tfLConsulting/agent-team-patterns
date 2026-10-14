@@ -1,0 +1,52 @@
+{
+  "version": 1,
+  "workstreams": {
+    "W-EXPORT": {
+      "outcome": "Make a fictional export usable without assistance"
+    }
+  },
+  "tasks": [
+    {
+      "id": "T-FORMAT",
+      "workstream": "W-EXPORT",
+      "title": "Compare export formats",
+      "acceptance": "Record alternatives and a recommendation for the fictional consumer.",
+      "priority": 1,
+      "state": "accepted",
+      "depends_on": [],
+      "result": {
+        "attempt": "attempt-1",
+        "artifact_version": "fictional-artifact-1",
+        "contract": "contract-1.md",
+        "evidence": "demonstration.md",
+        "finding": "A simple format may suffice; no real consumer evidence has been collected.",
+        "residual": "Compatibility and actual benefit are unmeasured in this fictional scenario."
+      },
+      "decision": {
+        "by": "fictional-owner",
+        "authority": "fictional local decision policy",
+        "reason": "Illustrates an accepted dependency, not a real approval.",
+        "artifact_version": "fictional-artifact-1"
+      }
+    },
+    {
+      "id": "T-VALIDATE",
+      "workstream": "W-EXPORT",
+      "title": "Check the chosen format against consumer needs",
+      "acceptance": "Record supported cases and remaining compatibility uncertainty.",
+      "priority": 1,
+      "state": "submitted",
+      "depends_on": [
+        "T-FORMAT"
+      ],
+      "result": {
+        "attempt": "attempt-1",
+        "artifact_version": "fictional-artifact-2",
+        "contract": "contract-2.md",
+        "evidence": "demonstration.md",
+        "finding": "A simple format may suffice; no real consumer evidence has been collected.",
+        "residual": "Compatibility and actual benefit are unmeasured in this fictional scenario."
+      }
+    }
+  ]
+}

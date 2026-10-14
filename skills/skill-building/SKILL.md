@@ -3,6 +3,8 @@ name: skill-building
 description: Build, review, or improve Claude Code skills. Use when creating a new skill from scratch, auditing an existing skill for quality, or converting research into a reusable skill. Covers the Agent Skills open standard, progressive disclosure, description writing, reference file organisation, and common failure modes. Also use when the user says "build a skill", "create a skill", "make a slash command", or asks how skills work.
 ---
 
+> Historical application (April–May 2026). For current guidance, start with [the design library](../../README.md) and [current instructions](../../AGENTS.md). This document retains its original assumptions and evidence limits.
+
 # Skill Building
 
 See `references/official-docs-and-spec.md` for the complete frontmatter reference, string substitutions, invocation control matrix, and Agent Skills specification.

@@ -3,6 +3,8 @@ name: build
 description: Structured 6-step execution recipe for non-trivial implementation work. Use when building features, fixing complex bugs, or making multi-file changes. Covers investigate, plan review, execute, implementation review, QA, and close-out. Do NOT use for one-line fixes or single-file changes — just do those directly. Also use when the user says "use the build recipe", "follow the 6-step process", or references the execution recipe.
 ---
 
+> Historical application (April–May 2026). For current guidance, start with [the design library](../../README.md) and [current instructions](../../AGENTS.md). This document retains its original assumptions and evidence limits.
+
 # Build Recipe
 
 A 6-step execution recipe for non-trivial implementation work. Each step runs as a separate subagent with fresh context, preventing the failure mode where 82% of tokens are wasted on post-completion troubleshooting (Judy, InfoQ 2026).

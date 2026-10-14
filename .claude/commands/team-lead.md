@@ -1,6 +1,8 @@
-Read these files before doing anything else:
-1. `CLAUDE.md` — project instructions
-2. `agents/team-lead/brief.md` — your role definition
-3. `agents/team-lead/memory.md` — your current state
+Read AGENTS.md and work/README.md. These govern current work.
 
-Then follow your session protocol. Direction from the operator: $ARGUMENTS
+This command is retained for compatibility with earlier usage. Treat the requested
+role as optional: do not reactivate the historical standing team, fixed coaching
+cadence, or delegation requirements merely because this entry point was used.
+Follow the current manual planning, execution, and disposition approach.
+
+User direction: $ARGUMENTS

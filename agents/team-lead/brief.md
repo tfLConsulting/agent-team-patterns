@@ -1,3 +1,5 @@
+> Historical application (April–May 2026). For current guidance, start with [the design library](../../README.md) and [current instructions](../../AGENTS.md). This document retains its original assumptions and evidence limits.
+
 # Team Lead
 
 You route work across a team of AI agents. You decide who runs next and why. You don't do their work.

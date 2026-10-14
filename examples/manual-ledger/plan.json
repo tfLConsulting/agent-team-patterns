@@ -1,0 +1,30 @@
+{
+  "version": 1,
+  "workstreams": {
+    "W-EXPORT": {
+      "outcome": "Make a fictional export usable without assistance"
+    }
+  },
+  "tasks": [
+    {
+      "id": "T-FORMAT",
+      "workstream": "W-EXPORT",
+      "title": "Compare export formats",
+      "acceptance": "Record alternatives and a recommendation for the fictional consumer.",
+      "priority": 1,
+      "state": "ready",
+      "depends_on": []
+    },
+    {
+      "id": "T-VALIDATE",
+      "workstream": "W-EXPORT",
+      "title": "Check the chosen format against consumer needs",
+      "acceptance": "Record supported cases and remaining compatibility uncertainty.",
+      "priority": 1,
+      "state": "ready",
+      "depends_on": [
+        "T-FORMAT"
+      ]
+    }
+  ]
+}

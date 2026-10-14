@@ -1,42 +1,29 @@
 # Agent Team Patterns
 
-Patterns for building AI agent teams that coordinate through files, evolve their own instructions, and run in plain-text repos.
+A design library for organising agent-assisted work around **planning, execution, and disposition**. Use it to help Codex, Claude Code, or a human design a way of working that fits a particular repository.
 
-## What's Here
+The main contribution is the reasoning: what deserves attention, what evidence supports a decision, how controls reduce risk, and how information survives between sessions. Roles, queues, branches, pull requests, and schedules are possible applications of those principles. None is a prerequisite.
 
-This is a practitioner's patterns library — not a framework, not a product. It's a set of field-tested patterns for organising AI agents into teams that persist across sessions, maintain memory, and improve over time.
+## Start here
 
-The evidence base is narrow: multiple projects, same operator, same LLM (Claude). These are practitioner field notes, not general theory. Individual patterns carry varying levels of evidence — see [learning-from-practice.md](methodology/learning-from-practice.md) for the confidence framework.
+- [Adopt in a new repository](applications/adoption.md): a prompt and discovery process starting from the project's needs.
+- [The operating cycle](principles/operating-cycle.md): vocabulary, planning, bounded execution, and disposition.
+- [Design considerations](principles/README.md): attention, consequences, tests, residuals, information, recovery, and cost.
+- [Choose an application](applications/README.md): manual files, branch-based work, review queues, or scheduled execution.
+- [Run a small example](examples/manual-ledger/README.md): dependency-aware selection and disposition packets using Python's standard library. No model calls or background jobs.
+- [Challenge the defaults](applications/policy-choices.md) with [contrasting design cases](examples/design-cases.md).
+- [Templates](templates/README.md): starting shapes to adapt, not a required schema.
 
-## The Patterns
+## Principles and applications
 
-**Starting a new agent team from scratch?**
-Read the [practitioner's guide](methodology/agent-team-guide.md), starting with Section 4 if you're setting up a new team.
+A principle explains a problem and a tradeoff. An application chooses a mechanism in a context. Keep both, and record when the mechanism stops earning its cost. One project can use a single Markdown record; another can use a database, PRs, or a mixture. A branch isolates edits but does not by itself preserve the task, evidence, decision, or eventual outcome.
 
-**Want the full picture?**
-Read [agent-team-guide.md](methodology/agent-team-guide.md) from the beginning.
+The [second-pass review](work/2026-10-design-review.md) records omissions and overgeneralisations found in the initial version. The new material is an initial practitioner synthesis and a set of design proposals, not a validated universal method. The runnable example is a deliberately limited reference implementation. Historical patterns retain their original evidence qualifications; their existence does not establish that every project needs a team or a coach.
 
-**Looking up a specific pattern:**
+## Earlier patterns
 
-- [three-tier-memory.md](methodology/three-tier-memory.md) — hot/warm/cold memory architecture
-- [role-design.md](methodology/role-design.md) — role design with negative rights
-- [file-based-coordination.md](methodology/file-based-coordination.md) — one-way information flows through files
-- [brief-anatomy.md](methodology/brief-anatomy.md) — how to write effective agent briefs
-- [self-modifying-briefs.md](methodology/self-modifying-briefs.md) — how agents evolve their own instructions
-- [writing-for-ai.md](methodology/writing-for-ai.md) — document quality principles for AI-consumed files
-- [learning-from-practice.md](methodology/learning-from-practice.md) — evidence tracking and continuous improvement
+The [earlier methodology](methodology/README.md), [skills](skills/), [agent examples](agents/), [journals](journal/), and [investigations](investigations/) remain available. They explore persistent roles, file coordination, memory, and learning. The [reuse map](applications/earlier-patterns.md) explains where these still help and which assumptions need reconsideration. They are historical material, not the default setup for this repo.
 
-## Exportable Skills
+## Working on this library
 
-Ready-to-use [Claude Code skills](https://agentskills.io) that implement patterns from this library. Copy any skill directory into your project's `.claude/skills/` to use it.
-
-- [build](skills/build/) — 6-step execution recipe for non-trivial implementation work (investigate, plan review, execute, code review, QA, close-out). Each step runs as a separate subagent with fresh context. Evidence-based — see the [research synthesis](skills/build/references/research-synthesis.md).
-- [skill-building](skills/skill-building/) — how to build, review, and improve Claude Code skills. Covers the Agent Skills open standard, progressive disclosure, description writing, and common failure modes.
-
-## How This Repo Works
-
-This repo is managed by its own agent team, following the methodology it documents. The team curates, evolves, and presents the patterns. See [CLAUDE.md](CLAUDE.md) for how the team operates.
-
-## License
-
-MIT — see [LICENSE](LICENSE).
+This repo uses [a small manual work record](work/README.md). It has no scheduler or live project interface. Read [AGENTS.md](AGENTS.md) for contribution and privacy rules. MIT licensed; see [LICENSE](LICENSE).
